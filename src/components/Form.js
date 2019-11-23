@@ -1,3 +1,5 @@
+//React Florist Search Form Component
+
 import React from 'react';
 import Florist from './Florist';
 import flowers from '../images/flowers.png';
@@ -8,13 +10,35 @@ class Form extends React.Component {
         location: '',
         florists: []
     }
-    //Get user's input
+
+    //Get current geolocation, if user permits.
+
+    componentDidMount = () => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(this.searchCoordinates);
+          }
+    }
+
+    //Request florist data with geolocation, if available.
+
+    searchCoordinates = (position) => {
+        fetch(`http://localhost:3000/florists?&latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`)
+        .then(response => response.json())
+        .then(response => {
+            this.setState({ florists: response })
+        })
+    }
+
+    //Store user input in state.
+
     handleChange = (event) => {
         this.setState({
             location: event.target.value
         })
     }
-    //Fetch backend with location provided
+
+    //Respond to submit with request for florist data from backend with location provided.
+
     handleSubmit = (event) => {
         event.preventDefault();
         var location = this.state.location;
@@ -25,6 +49,8 @@ class Form extends React.Component {
             this.setState({ florists: response });
         });
     }
+
+    //Florist search form renderer.
 
     render(){
         const localFlorists = this.state.florists.map((florist, index) => {

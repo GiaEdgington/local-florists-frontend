@@ -1,3 +1,5 @@
+//React Florist result Component
+
 import React from 'react';
 
 class Florist extends React.Component {
