@@ -93,4 +93,23 @@ body {
   column-gap: 2em;
 }
 
+.florist {
+ border:1px #f4f5f7 solid;
+ -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+  page-break-inside: avoid; /* Firefox */
+  break-inside: avoid; /* IE 10+ */
+}
 
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.florist h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #0e7874;
+  margin-bottom: 0;
+  padding:0;
+}
