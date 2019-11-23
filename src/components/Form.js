@@ -8,7 +8,8 @@ class Form extends React.Component {
 
     state = {
         location: '',
-        florists: []
+        florists: [],
+        coordinates: false
     }
 
     //Get current geolocation, if user permits.
@@ -25,7 +26,7 @@ class Form extends React.Component {
         fetch(`http://localhost:3000/florists?&latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`)
         .then(response => response.json())
         .then(response => {
-            this.setState({ florists: response })
+            this.setState({ florists: response, coordinates: true })
         })
     }
 
@@ -46,7 +47,7 @@ class Form extends React.Component {
         fetch(`http://localhost:3000/florists?location=${location}`)
         .then(response => response.json())
         .then(response => {
-            this.setState({ florists: response });
+            this.setState({ florists: response, coordinates: false });
         });
     }
 
@@ -66,6 +67,7 @@ class Form extends React.Component {
                             <button>Search</button>
                     </form>
             </div>
+                { this.state.coordinates ? <h3>Florists in your area:</h3> : <span></span>}
                 <div className="floristList">
                     <div>
                     {localFlorists}
