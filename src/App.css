@@ -20,3 +20,77 @@
 .App-link {
   color: #09d3ac;
 }
+
+body {
+  background-color: #f4f5f7;
+  margin:0;
+  padding:0;
+}
+
+.searchForm {
+  margin: 0 auto;
+} 
+
+.form-header {
+  height: 17.5em;
+  border: none;
+  margin-bottom: 15em;
+  padding: 0;
+  text-align: center;
+  background-color: #cee8e1;
+}
+
+.form-header label {
+  font-family: 'Montserrat', sans-serif;
+  color: #303030;
+  font-weight: bold;
+  font-size: 1.7em;
+}
+
+.form-header input {
+  width: 20em;
+  height: 2.7em;
+  margin: .9em 0;
+  font-size: 1em;
+  text-align: center;
+  border: 2px black solid;
+  border-radius: 3.5em;
+  outline: 0;
+}
+
+.form-header button {
+  width: 7em;
+  font-size: 1em;
+  padding: .5em;
+  background-color: #fbd36b;
+  border-radius: 3em;
+  font-family: 'Montserrat', sans-serif;
+  color: #303030;
+  font-weight: bold;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),
+              0 2px 4px -1px rgba(0,0,0,.06);
+  outline: 0;
+  cursor: pointer;
+}
+
+.form-header button:hover {
+  background-color: white;
+}
+
+.form-header img {
+  width: 11em;
+  margin-top: 3em;
+}
+
+.floristList {
+  margin: 2em auto;
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2;
+  width: 35%;
+  -webkit-column-gap: 2em;
+  -moz-column-gap: 2em;
+  column-gap: 2em;
+}
+
+
