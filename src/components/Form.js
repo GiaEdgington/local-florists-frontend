@@ -1,4 +1,5 @@
 import React from 'react';
+import Florist from './Florist';
 
 class Form extends React.Component {
 
@@ -20,12 +21,14 @@ class Form extends React.Component {
         fetch(`http://localhost:3000/florists?location=${location}`)
         .then(response => response.json())
         .then(response => {
-            console.log(response);
-            //this.setState({ florists: response });
+            this.setState({ florists: response });
         });
     }
 
     render(){
+        const localFlorists = this.state.florists.map((florist, index) => {
+            return <Florist key={index} name={florist.name} phone={florist.display_phone} address={florist.location.display_address[0]+ florist.location.display_address[1]} />
+        })
         return(
             <div className="">
                 <div className="">
@@ -37,6 +40,7 @@ class Form extends React.Component {
             </div>
                 <div className="">
                     <div>
+                    {localFlorists}
                     </div>
                 </div>
             </div>
