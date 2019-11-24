@@ -23,7 +23,7 @@ class Form extends React.Component {
     //Request florist data with geolocation, if available.
 
     searchCoordinates = (position) => {
-        fetch(`lanternflorists.azurewebsites.net/florists?&latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`)
+        fetch(`https://lanternflorists.azurewebsites.net/florists?&latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`)
         .then(response => response.json())
         .then(response => {
             this.setState({ florists: response, coordinates: true })
@@ -44,7 +44,7 @@ class Form extends React.Component {
         event.preventDefault();
         var location = this.state.location;
 
-        fetch(`lanternflorists.azurewebsites.net/florists?location=${location}`)
+        fetch(`https://lanternflorists.azurewebsites.net/florists?location=${location}`)
         .then(response => response.json())
         .then(response => {
             this.setState({ florists: response, coordinates: false });
