@@ -55,7 +55,7 @@ class Form extends React.Component {
 
     render(){
         const localFlorists = this.state.florists.map((florist, index) => {
-            return <Florist key={index} name={florist.name} phone={florist.display_phone} address={florist.location.display_address[0]+ florist.location.display_address[1]} />
+            return <Florist key={index} name={florist.name} phone={florist.display_phone} address={florist.location.display_address[0]+ ' ' + florist.location.display_address[1]} />
         })
         return(
             <div className="form-header">
